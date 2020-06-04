@@ -1,0 +1,59 @@
+﻿@page
+@using Janssen.Core.Web3.Models @*namespace*@
+@model Janssen.Core.Web3.Pages.EnrollModel
+@{
+    Layout = null;
+}
+
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+<div class="container">
+    <h3>Add Student</h3>
+    <hr />
+    <br />
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Student.FirstName"></label>
+                <input asp-for="Student.FirstName" class="form-control" />
+                <span class="alert-danger" asp-validation-for="Student.FirstName"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Student.PrevSchool"></label>
+                <input asp-for="Student.PrevSchool" class="form-control" />
+                <span class="alert-danger" asp-validation-for="Student.PrevSchool"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Student.Year"></label>
+                <input asp-for="Student.Year" class="form-control" />
+                <span class="alert-danger" asp-validation-for="Student.Year"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Student.Gender"></label>
+                <input asp-for="Student.Gender" cl class="form-control" />
+                <span class="alert-danger" asp-validation-for="Student.Gender"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Student.ImageUrl"></label>
+                <input asp-for="Student.ImageUrl" class="form-control" />
+                <span class="alert-danger" asp-validation-for="Student.ImageUrl"></span>
+            </div>
+        </div>
+        <br />
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a class="btn btn-default" href="/">Cancel</a>
+    </form>
+</div>

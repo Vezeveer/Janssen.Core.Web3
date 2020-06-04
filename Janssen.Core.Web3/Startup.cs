@@ -11,6 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Janssen.Core.Web3.Models;
+using Microsoft.Extensions.Options;
+using Janssen.Core.Web3.Services;
 
 namespace Janssen.Core.Web3
 {
@@ -35,7 +38,7 @@ namespace Janssen.Core.Web3
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(cookieOptions => {
-                cookieOptions.LoginPath = "/";
+                cookieOptions.LoginPath = "/login";
             });
 
             services.AddMvc().AddRazorPagesOptions(options => {

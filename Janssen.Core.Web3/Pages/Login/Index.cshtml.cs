@@ -25,6 +25,7 @@ namespace Janssen.Core.Web3.Pages
         [BindProperty, DataType(DataType.Password)]
         public string Password { get; set; }
         public string Message { get; set; }
+
         public async Task<IActionResult> OnPost()
         {
             var user = configuration.GetSection("AdminUser").Get<AdminUser>();
@@ -32,6 +33,7 @@ namespace Janssen.Core.Web3.Pages
             if (UserName == user.UserName)
             {
                 var passwordHasher = new PasswordHasher<string>();
+                
                 if (passwordHasher.VerifyHashedPassword(null, user.Password, Password) == PasswordVerificationResult.Success)
                 {
                     var claims = new List<Claim>

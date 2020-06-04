@@ -1,0 +1,36 @@
+﻿
+@page
+@model Janssen.Core.Web3.Pages.LoginModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SAJCTI - Login</title>
+    <link href="~/css/login.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <section>
+        <div class="login-page">
+            <div class="form">
+                <form method="post" class="login-form">
+
+                    <p class="text-danger" style="color:red !important;">
+                        You Logged Out
+                    </p>
+                    <a href="https://sajcti.ph/login" class="btn btn-primary">Go back to login screen</a>
+                    
+                    @*<p class="message">Not registered? <a href="#">Create an account</a></p>*@
+                </form>
+            </div>
+        </div>
+    </section>
+    <script src="~/js/login.js"></script>
+</body>
+</html>

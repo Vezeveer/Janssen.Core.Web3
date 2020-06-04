@@ -1,0 +1,391 @@
+﻿
+@font-face {
+    font-family: 'castellar';
+    src: url('../castellar.ttf') format('truetype');
+}
+
+body, html {
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera 
+body::-webkit-scrollbar {
+    display: none;
+}
+
+ Hide scrollbar for IE and Edge 
+body {
+    -ms-overflow-style: none;
+}*/
+
+.main-heading{
+    text-shadow: 5px 2px 2px rgba(22, 22, 22, 0.1);
+}
+
+#gym-pic2, #gym-pic3, #gym-pic1 {
+    
+    overflow:hidden;
+    top: 0;
+    left: 0;
+}
+#gym-pic2, #gym-pic3 {
+    position: absolute;
+}
+
+.headings-cs {
+    display: flex;
+    justify-content: center;
+}
+
+    .headings-cs > img {
+        opacity: .5;
+    }
+
+.heading-vision > img {
+    height: 38px;
+    width: 114px;
+}
+
+.headings-cs > h2, .heading-corevalues {
+    font-family: Castellar;
+}
+
+.heading-mission > img {
+    opacity: .5;
+    width: 95px;
+    height: 32px;
+}
+
+.vine-mission {
+    transform: scaleX(-1);
+}
+
+.crimlab-last-img{
+    height: 100%;
+}
+
+
+.photobanner-crimlab {
+    height: 400px;
+    width: 2540px;
+    /*margin-bottom: 80px;*/
+}
+
+.photobanner-mootcourt {
+    height: 412px;
+    width: 1334px;
+}
+
+.photobanner-deftac {
+    height: 412px;
+    width: 1418px;
+}
+/*keyframe animations*/
+.first {
+    /*-webkit-animation: bannermove 60s linear infinite;
+    -moz-animation: bannermove 60s linear infinite;
+    -ms-animation: bannermove 60s linear infinite;
+    -o-animation: bannermove 60s linear infinite;*/
+    animation: bannermove 80s linear infinite;
+}
+
+.first-2 {
+    /*-webkit-animation: bannermove 60s linear infinite;
+    -moz-animation: bannermove 60s linear infinite;
+    -ms-animation: bannermove 60s linear infinite;
+    -o-animation: bannermove 60s linear infinite;*/
+    animation: bannermove-2 35s linear infinite;
+}
+.first-3 {
+    /*-webkit-animation: bannermove 60s linear infinite;
+    -moz-animation: bannermove 60s linear infinite;
+    -ms-animation: bannermove 60s linear infinite;
+    -o-animation: bannermove 60s linear infinite;*/
+    animation: bannermove-3 50s linear infinite;
+}
+
+@keyframes bannermove {
+    0% {
+        margin-left: 0px;
+    }
+
+    50% {
+        margin-left: -1865px;
+    }
+
+    100% {
+        margin-left: 0px;
+    }
+}
+
+@keyframes bannermove-2 {
+    0% {
+        margin-left: 0px;
+    }
+
+    50% {
+        margin-left: -500px;
+    }
+
+    100% {
+        margin-left: 0px;
+    }
+}
+
+@keyframes bannermove-3 {
+    0% {
+        margin-left: -709px;
+    }
+
+    50% {
+        margin-left: 0px;
+    }
+
+    100% {
+        margin-left: -709px;
+    }
+}
+
+.img-imitate {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.photobanner-crimelab-container {
+    display: grid;
+    grid-gap: 5px;
+    width: 100%;
+    height: 412px;
+}
+
+.photobanner-deftac-container {
+    display: grid;
+    grid-gap: 5px;
+    width: 618px;
+    height: 412px;
+}
+
+.deftac-box1 {
+    height: 206px;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    overflow: hidden;
+}
+.deftac-box2 {
+    height: 206px;
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+    overflow: hidden;
+}
+.deftac-box3 {
+    height: 206px;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    overflow: hidden;
+}
+
+.box1 {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+    overflow: hidden;
+}
+
+.box2 {
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+    overflow: hidden;
+}
+
+.box3 {
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 1;
+    overflow: hidden;
+}
+
+.fit-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#requirements {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .masthead h1 {
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+}
+
+.mobile-image {
+    display: block;
+}
+
+.desktop-image {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .logo-link {
+        color: #fff;
+    }
+    .logo-line {
+        background-color: #fff;
+    }
+    .computer-lab-bg {
+        background: url('../imgs/computerlab/computer_lab_1080.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-size: cover;
+    }
+
+    .mobile-image {
+        display: none;
+    }
+
+    .desktop-image {
+        display: block;
+    }
+
+    /*CUSTOM*/
+    .photobanner-crimelab-container {
+        height: 450px;
+    }
+
+    .photobanner-crimlab {
+        height: 450px;
+    }
+
+    .photobanner-mootcourt {
+        height: 412px;
+        width: 1334px;
+    }
+
+    .photobanner-deftac {
+        height: 412px;
+        width: 1418px;
+    }
+
+    /*.fit-to-height {
+        object-fit: cover !important;
+        object-position: center !important;
+    }*/
+}
+
+@media (max-width: 1370px) {
+    .masthead {
+        /*background: linear-gradient(to bottom, rgba(22, 22, 22, 0.0) 0%, rgba(22, 22, 22, 0.4) 75%, #161616 100%), url('../imgs/main_bldg/main_building_720_low.jpg'); /*Tweaked Here*/
+        /*background: url('../imgs/main_bldg/main_building_720_low.jpg'); /*Tweaked Here
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-size: cover;*/
+    }
+}
+
+.loader-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: #F9BD3A;
+    z-index: 999999999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nojavascript {
+    display: none;
+}
+
+.loader {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border: 4px solid #Fff;
+    animation: loader 2s infinite ease;
+}
+
+.loader-inner {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+    animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(180deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader-inner {
+    0% {
+        height: 0%;
+    }
+
+    25% {
+        height: 0%;
+    }
+
+    50% {
+        height: 100%;
+    }
+
+    75% {
+        height: 100%;
+    }
+
+    100% {
+        height: 0%;
+    }
+}
+
+
+/*SCROLL BAR CUSTOM*/
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(22, 22, 22, 0.1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 216, 0, 0.6);
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
