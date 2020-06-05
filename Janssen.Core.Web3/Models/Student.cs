@@ -1,6 +1,7 @@
 ﻿using Janssen.Core.Web3.CustomAttributes;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Janssen.Core.Web3.Models
@@ -20,26 +21,62 @@ namespace Janssen.Core.Web3.Models
         //[BsonIgnoreIfDefault]
         public string Id { get; set; }
 
+        [BsonElement("EnrollmentStatus")]
+        [Display(Name = "Enrollment Status")]
+        [Required]
+        public string EnrollmentStatus { get; set; }
+
         [BsonElement("FirstName")]
-        [Display(Name = "Name")]
+        [Display(Name = "First Name")]
         [Required]
         public string FirstName { get; set; }
 
-        [BsonElement("PreviousSchool")]
-        [Display(Name = "Previous School")]
-        [Required]
-        public string PrevSchool { get; set; }
+        [BsonElement("MiddleName")]
+        [Display(Name = "Middle Name")]
+        public string MiddleName { get; set; }
 
-        [BsonElement("YearBorn")]
-        [Display(Name = "Year Born")]
+        [BsonElement("LastName")]
+        [Display(Name = "Last Name")]
         [Required]
-        [YearRange]
-        public int Year { get; set; }
+        public string LastName { get; set; }
+
+        [BsonElement("DateOfBirth")]
+        [Display(Name = "Date Of Birth")]
+        public DateTime DateOfBirth { get; set; }
+
+        //[YearRange]
+        //public int Year { get; set; }
 
         [BsonElement("Gender")]
-        [Display(Name = "Gender(M/F)")]
+        [Display(Name = "Gender")]
         //[DisplayFormat(DataFormatString = "{0:#,0}")]
-        public char Gender { get; set; }
+        public string Gender { get; set; }
+
+        [BsonElement("PermanentAddress")]
+        [Display(Name = "Permanent Address")]
+        [Required]
+        public string PermanentAddress { get; set; }
+
+        [BsonElement("Religion")]
+        [Display(Name = "Religion")]
+        [Required]
+        public string Religion { get; set; }
+
+        [BsonElement("PlaceOfBirth")]
+        [Display(Name = "Place Of Birth")]
+        [Required]
+        public string PlaceOfBirth { get; set; }
+
+        [BsonElement("Age")]
+        [Display(Name = "Age")]
+        [Required]
+        public int Age { get; set; }
+
+
+        [BsonElement("DateCreated")]
+        [Display(Name = "DateCreated")]
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        public DateTime DateCreated { get; set; } = DateTime.Now;
 
         [BsonElement("ImageUrl")]
         [Display(Name = "Photo")]

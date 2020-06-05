@@ -1,7 +1,5 @@
-﻿
-@page
-@model Janssen.Core.Web3.Pages.LoginModel
-
+﻿@page
+@model Janssen.Core.Web3.Pages.EnrollNextStepModel
 @{
     Layout = null;
 }
@@ -11,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>SAJCTI - Login</title>
+    <title>SAJCTI - Next Step</title>
     <link href="~/css/login.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
@@ -21,11 +19,11 @@
             <div class="form">
                 <form method="post" class="login-form">
 
-                    <p class="text-danger" style="color:red !important;">
-                        You Logged Out
+                    <p class="text-success">
+                        Complete. Here is the next step. Wait a few hours while we process your submitted data. We will contact you soon through your email or phone number.
                     </p>
-                    <a href="/" class="btn btn-primary">Go back to login screen</a>
-                    
+                    <a href="/" class="btn btn-primary">Go back to Home Page</a>
+
                     @*<p class="message">Not registered? <a href="#">Create an account</a></p>*@
                 </form>
             </div>

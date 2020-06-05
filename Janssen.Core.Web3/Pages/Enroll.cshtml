@@ -5,55 +5,104 @@
     Layout = null;
 }
 
+<!DOCTYPE html>
 
-
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-
-<div class="container">
-    <h3>Add Student</h3>
-    <hr />
-    <br />
-    <form method="post">
-        <div class="row">
-            <div class="col-md-4">
-                <label asp-for="Student.FirstName"></label>
-                <input asp-for="Student.FirstName" class="form-control" />
-                <span class="alert-danger" asp-validation-for="Student.FirstName"></span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <label asp-for="Student.PrevSchool"></label>
-                <input asp-for="Student.PrevSchool" class="form-control" />
-                <span class="alert-danger" asp-validation-for="Student.PrevSchool"></span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <label asp-for="Student.Year"></label>
-                <input asp-for="Student.Year" class="form-control" />
-                <span class="alert-danger" asp-validation-for="Student.Year"></span>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4">
-                <label asp-for="Student.Gender"></label>
-                <input asp-for="Student.Gender" cl class="form-control" />
-                <span class="alert-danger" asp-validation-for="Student.Gender"></span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <label asp-for="Student.ImageUrl"></label>
-                <input asp-for="Student.ImageUrl" class="form-control" />
-                <span class="alert-danger" asp-validation-for="Student.ImageUrl"></span>
-            </div>
-        </div>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Enroll</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/css/Enroll2.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h3>Student Enrollment</h3>
+        <hr />
         <br />
-        <input type="submit" value="Save" class="btn btn-primary" />
-        <a class="btn btn-default" href="/">Cancel</a>
-    </form>
-</div>
+        <form method="post">
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="enrollment-status">Enrollment Status</label>
+                    <select asp-for="Student.EnrollmentStatus" class="form-control" id="enrollment-status">
+                        <option>Continuing Student</option>
+                        <option>New Student</option>
+                        <option>Returnee</option>
+                    </select>
+                    <span class="alert-danger text-danger" asp-validation-for="Student.EnrollmentStatus"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label asp-for="Student.FirstName"></label>
+                    <input asp-for="Student.FirstName" class="form-control" required />
+                    <span class="alert-danger text-danger" asp-validation-for="Student.FirstName"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Student.MiddleName"></label>
+                    <input asp-for="Student.MiddleName" class="form-control" />
+                    <span class="alert-danger" asp-validation-for="Student.MiddleName"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Student.LastName"></label>
+                    <input asp-for="Student.LastName" class="form-control" required />
+                    <span class="alert-danger" asp-validation-for="Student.LastName"></span>
+                </div>
+            </div>
+
+            <div class="row">
+
+
+                <div class="form-group col-md-4">
+                    <label for="gender">Gender</label>
+                    <select asp-for="Student.Gender" class="form-control" id="gender">
+                        <option>Female</option>
+                        <option>Male</option>
+                    </select>
+                    <span class="alert-danger text-danger" asp-validation-for="Student.Gender"></span>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label asp-for="Student.DateOfBirth"></label>
+                    <input class="form-control" type="date" asp-for="Student.DateOfBirth" required />
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label asp-for="Student.PermanentAddress"></label>
+                    <input asp-for="Student.PermanentAddress" class="form-control" placeholder="House No., Street Name, Barangay, City, Zip Code, Province, Country" required/>
+                    <span class="alert-danger" asp-validation-for="Student.PermanentAddress"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label asp-for="Student.Religion"></label>
+                    <input asp-for="Student.Religion" class="form-control" placeholder="e.g. Roman Catholic" required/>
+                    <span class="alert-danger" asp-validation-for="Student.Religion"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Student.PlaceOfBirth"></label>
+                    <input asp-for="Student.PlaceOfBirth" class="form-control" placeholder="city or municipality" required/>
+                    <span class="alert-danger" asp-validation-for="Student.PlaceOfBirth"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Student.Age"></label>
+                    <input asp-for="Student.Age" class="form-control" placeholder="" required/>
+                    <span class="alert-danger" asp-validation-for="Student.Age"></span>
+                </div>
+            </div>
+
+            <br />
+            <input type="submit" value="Save" class="btn btn-primary" />
+            <a onclick="return confirm('Are you sure you want to cancel enrollment?');" class="btn btn-default" href="/">Cancel</a>
+        </form>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -41,7 +41,7 @@ namespace Janssen.Core.Web3.Pages
             //    return Page();
             //}
 
-            return RedirectToPage("/Enroll");
+            return RedirectToPage("/EnrollNextStep");
         }
 
     }
