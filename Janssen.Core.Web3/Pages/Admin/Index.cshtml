@@ -25,7 +25,7 @@
         <thead>
             <tr>
                 <th scope="col">
-                    @Html.DisplayName("#")
+                    @Html.DisplayName("Created")
                 </th>
                 <th scope="col">
                     @Html.DisplayName("Full Name")
@@ -34,7 +34,7 @@
                     @Html.DisplayName("Age")
                 </th>
                 <th scope="col">
-                    @Html.DisplayName("")
+                    @Html.DisplayName("Phone")
                 </th>
                 <th scope="col">
                     @Html.DisplayName("Gender")
@@ -50,16 +50,22 @@
             {
             <tr>
                 <td>
-                    .
+                    @{ 
+                        string dateCreated = $"{item.DateCreated:d-MMM-yyyy}";
+                    }
+                @Html.DisplayFor(modelItem => dateCreated)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.MiddleName) @Html.DisplayFor(modelItem => item.LastName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Age)
+                    @{
+                        int age = DateTime.Today.Year - item.DateOfBirth.Year;
+                    }
+                    @Html.DisplayFor(modelItem => age)
                 </td>
                 <td>
-                    
+                    @Html.DisplayFor(modelItem => item.Phone)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Gender)

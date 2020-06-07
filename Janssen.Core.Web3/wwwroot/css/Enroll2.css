@@ -80,7 +80,7 @@
     background-color: #ddd;
 }
 
-#myBar, #myBar2, #myBar3 {
+#myBar1, #myBar2, #myBar3, #myBar4 {
     width: 10%;
     height: 30px;
     background-color: #4CAF50;
@@ -97,7 +97,7 @@ html.darkenPage {
         opacity: 0.5;
     }
 
-#url-psa-img, #url-psa-img2, #url-psa-img3 {
+#url-psa-img1, #url-psa-img2, #url-psa-img3, #url-psa-img4 {
     opacity: 0;
 }
 

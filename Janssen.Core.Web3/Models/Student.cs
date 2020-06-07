@@ -21,6 +21,11 @@ namespace Janssen.Core.Web3.Models
         //[BsonIgnoreIfDefault]
         public string Id { get; set; }
 
+        [BsonElement("DateCreated")]
+        [Display(Name = "DateCreated")]
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        public DateTime DateCreated { get; set; } = DateTime.Now;
+
         [BsonElement("EnrollmentStatus")]
         [Display(Name = "Enrollment Status")]
         [Required]
@@ -67,16 +72,8 @@ namespace Janssen.Core.Web3.Models
         [Required]
         public string PlaceOfBirth { get; set; }
 
-        [BsonElement("Age")]
-        [Display(Name = "Age")]
-        [Required]
-        public int Age { get; set; }
 
 
-        [BsonElement("DateCreated")]
-        [Display(Name = "DateCreated")]
-        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
-        public DateTime DateCreated { get; set; } = DateTime.Now;
 
         [BsonElement("ImageUrlPSA")]
         [Display(Name = "PSA Scanned Image")]
@@ -95,5 +92,139 @@ namespace Janssen.Core.Web3.Models
         [DataType(DataType.ImageUrl)]
         [Required]
         public string ImageUrlMoral { get; set; }
+
+        [BsonElement("ImageUrlReportCard")]
+        [Display(Name = "School Report Card")]
+        [DataType(DataType.ImageUrl)]
+        [Required]
+        public string ImageUrlReportCard { get; set; }
+
+        [BsonElement("Sacraments")]
+        [Display(Name = "Sacraments Received")]
+        [Required]
+        public string Sacraments { get; set; }
+
+        [BsonElement("Nationality")]
+        [Display(Name = "Nationality")]
+        [Required]
+        public string Nationality { get; set; }
+
+        [BsonElement("StayingWith")]
+        [Display(Name = "Presently Staying With")]
+        [Required]
+        public string StayingWith { get; set; }
+
+        [BsonElement("Phone")]
+        [Display(Name = "Phone Number")]
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
+        public string Phone { get; set; }
+
+        [BsonElement("PreviousSchool")]
+        [Display(Name = "Last School Attended")]
+        [Required]
+        public string PreviousSchool { get; set; }
+
+        [BsonElement("PrevSchAddress")]
+        [Display(Name = "Address of Last School Attended")]
+        [Required]
+        public string PrevSchAddress { get; set; }
+
+        [BsonElement("Transport")]
+        [Display(Name = "Mode of Transportation to and from")]
+        [Required]
+        public string Transport { get; set; }
+
+        [BsonElement("Email")]
+        [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)]
+        [Required]
+        public string Email { get; set; }
+
+        [BsonElement("HowTheyFindUs")]
+        [Display(Name = "How did you hear from us?")]
+        [Required]
+        public string HowTheyFindUs { get; set; }
+
+        [BsonElement("FatherName")]
+        [Display(Name = "Father's Name")]
+        [Required]
+        public string FatherName { get; set; }
+
+        [BsonElement("FatherAge")]
+        [Display(Name = "Father's Age")]
+        [Required]
+        public int FatherAge { get; set; }
+
+        [BsonElement("FatherOccupation")]
+        [Display(Name = "Father's Occupation")]
+        [Required]
+        public string FatherOccupation { get; set; }
+
+        [BsonElement("FatherEducationLevel")]
+        [Display(Name = "Father's Education Level")]
+        [Required]
+        public string FatherEducationLevel { get; set; }
+
+        [BsonElement("FatherPhone")]
+        [Display(Name = "Father's Phone")]
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
+        public string FatherPhone { get; set; }
+
+        [BsonElement("MotherName")]
+        [Display(Name = "Mother's Name")]
+        [Required]
+        public string MotherName { get; set; }
+
+        [BsonElement("MotherAge")]
+        [Display(Name = "Mother's Age")]
+        [Required]
+        public int MotherAge { get; set; }
+
+        [BsonElement("MotherOccupation")]
+        [Display(Name = "Mother's Occupation")]
+        [Required]
+        public string MotherOccupation { get; set; }
+
+        [BsonElement("MotherEducationLevel")]
+        [Display(Name = "Mother's Education Level")]
+        [Required]
+        public string MotherEducationLevel { get; set; }
+
+        [BsonElement("MotherPhone")]
+        [Display(Name = "Mother's Phone")]
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
+        public string MotherPhone { get; set; }
+
+        [BsonElement("OtherFamilyMemberName")]
+        [Display(Name = "Other Family Member's Name")]
+        public string OtherFamilyMemberName { get; set; }
+
+
+        [BsonElement("OtherFamilyMemberOccupation")]
+        [Display(Name = "Other Family Member's Occupation")]
+        public string OtherFamilyMemberOccupation { get; set; }
+
+        [BsonElement("OtherFamilyMemberEducationLevel")]
+        [Display(Name = "Other Family Member's Education Level")]
+        public string OtherFamilyMemberEducationLevel { get; set; }
+
+
+        [BsonElement("OtherFamilyMemberAge")]
+        [Display(Name = "Family Member's Age")]
+        public string OtherMemberAge { get; set; }
+
+        [BsonElement("OtherFamilyMemberPhone")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
+        [Display(Name = "Other Family Member's Phone")]
+        public string OtherFamilyMemberPhone { get; set; }
+
+
     }
 }
