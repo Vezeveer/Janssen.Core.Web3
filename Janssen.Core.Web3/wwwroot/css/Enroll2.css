@@ -33,3 +33,85 @@
         border-right: none;
         border-left: none;
     }*/
+
+    .submit-btn-container{
+        text-align: center;
+        margin-bottom: 10rem;
+
+    }
+
+    .submit-btn{
+        font-size: 1.5rem !important;
+        padding: 1rem !important;
+    }
+
+.card {
+    /*background: white;*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    margin-bottom: 8px;
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+}
+
+/*.file-upload-container {
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    background: #3F51B5;
+    user-select: none;
+    transition: all 150ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    text-align: center;
+    color: white;
+    line-height: 50px;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+    .file-upload-container:hover {
+        cursor: pointer;
+        background: #3949AB;
+    }*/
+
+
+#myProgress {
+    width: 100%;
+    background-color: #ddd;
+}
+
+#myBar, #myBar2, #myBar3 {
+    width: 10%;
+    height: 30px;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 30px;
+    color: #d8d8d8;
+}
+
+html.darkenPage {
+    background-color: black;
+}
+
+    html.darkenPage body {
+        opacity: 0.5;
+    }
+
+#url-psa-img, #url-psa-img2, #url-psa-img3 {
+    opacity: 0;
+}
+
+
+#mainNav{
+    display: none;
+}
+
+.btn {
+    box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+    padding: 5px;
+    font-family: 'Varela Round';
+    font-size: 100% !important;
+    text-transform: none !important;
+    letter-spacing: .15rem;
+    border: 0;
+}

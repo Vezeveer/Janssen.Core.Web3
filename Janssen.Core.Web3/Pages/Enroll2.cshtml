@@ -11,22 +11,26 @@
     <meta name="viewport" content="width=device-width" />
     <title>Enroll2</title>
     <link href="~/css/Enroll2.css" rel="stylesheet" />
+    <link href="~/css/upload.css" rel="stylesheet" />
 </head>
 <body>
-    <section>
-        <div class="login-page">
-            <div class="form">
-                @*<form method="post" class="login-form">
-                    <input asp-for="Password" type="text" placeholder="username" required />
-                    <input asp-for="Password" type="password" placeholder="password" required />
-                    <button>login</button>
-                    <p class="text-danger" style="color:red !important;">
-                        @Model.Message
-                        @RouteData.Values["msg"]
-                    </p>
-                </form>*@
-            </div>
+    <div class="card">
+        <img src="~/imgs/placeholder.jpg" id="img-preview" />
+        <label class="file-upload-container" for="file-upload">
+            <input id="file-upload" type="file" style="display:none;">
+            Select an Image
+        </label>
+        <div id="myProgress">
+            <div id="myBar">10%</div>
         </div>
-    </section>
+    </div>
+    <form action="post">
+        <input type="text" />
+        <div id="url-img-input"></div>
+        <button type="submit">submit</button>
+    </form>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="~/js/upload.js"></script>
 </body>
 </html>

@@ -78,10 +78,22 @@ namespace Janssen.Core.Web3.Models
         [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
         public DateTime DateCreated { get; set; } = DateTime.Now;
 
-        [BsonElement("ImageUrl")]
-        [Display(Name = "Photo")]
+        [BsonElement("ImageUrlPSA")]
+        [Display(Name = "PSA Scanned Image")]
         [DataType(DataType.ImageUrl)]
         [Required]
-        public string ImageUrl { get; set; }
+        public string ImageUrlPSA { get; set; }
+
+        [BsonElement("ImageUrlID")]
+        [Display(Name = "Photo ID")]
+        [DataType(DataType.ImageUrl)]
+        [Required]
+        public string ImageUrlID { get; set; }
+
+        [BsonElement("ImageUrlMoral")]
+        [Display(Name = "Certificate of Good Moral")]
+        [DataType(DataType.ImageUrl)]
+        [Required]
+        public string ImageUrlMoral { get; set; }
     }
 }

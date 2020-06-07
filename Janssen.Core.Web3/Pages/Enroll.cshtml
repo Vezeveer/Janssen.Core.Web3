@@ -2,7 +2,7 @@
 @using Janssen.Core.Web3.Models @*namespace*@
 @model Janssen.Core.Web3.Pages.EnrollModel
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
@@ -13,15 +13,29 @@
     <title>Enroll</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/css/Enroll2.css" rel="stylesheet" />
+    <link href="~/css/img-loading-anim.css" rel="stylesheet" />
 </head>
 <body>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+
     <div class="container">
         <h3>Student Enrollment</h3>
         <hr />
         <br />
+
+
         <form method="post">
+
+
+
             <div class="row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-lg-4">
                     <label for="enrollment-status">Enrollment Status</label>
                     <select asp-for="Student.EnrollmentStatus" class="form-control" id="enrollment-status">
                         <option>Continuing Student</option>
@@ -33,17 +47,17 @@
             </div>
 
             <div class="row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-lg-4">
                     <label asp-for="Student.FirstName"></label>
                     <input asp-for="Student.FirstName" class="form-control" required />
                     <span class="alert-danger text-danger" asp-validation-for="Student.FirstName"></span>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-lg-4">
                     <label asp-for="Student.MiddleName"></label>
                     <input asp-for="Student.MiddleName" class="form-control" />
                     <span class="alert-danger" asp-validation-for="Student.MiddleName"></span>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-lg-4">
                     <label asp-for="Student.LastName"></label>
                     <input asp-for="Student.LastName" class="form-control" required />
                     <span class="alert-danger" asp-validation-for="Student.LastName"></span>
@@ -53,7 +67,7 @@
             <div class="row">
 
 
-                <div class="form-group col-md-4">
+                <div class="form-group col-lg-4">
                     <label for="gender">Gender</label>
                     <select asp-for="Student.Gender" class="form-control" id="gender">
                         <option>Female</option>
@@ -62,7 +76,7 @@
                     <span class="alert-danger text-danger" asp-validation-for="Student.Gender"></span>
                 </div>
 
-                <div class="form-group col-md-4">
+                <div class="form-group col-lg-4">
                     <label asp-for="Student.DateOfBirth"></label>
                     <input class="form-control" type="date" asp-for="Student.DateOfBirth" required />
                 </div>
@@ -72,37 +86,142 @@
             <div class="row">
                 <div class="form-group col-md-12">
                     <label asp-for="Student.PermanentAddress"></label>
-                    <input asp-for="Student.PermanentAddress" class="form-control" placeholder="House No., Street Name, Barangay, City, Zip Code, Province, Country" required/>
+                    <input asp-for="Student.PermanentAddress" class="form-control" placeholder="House No., Street Name, Barangay, City, Zip Code, Province, Country" required />
                     <span class="alert-danger" asp-validation-for="Student.PermanentAddress"></span>
                 </div>
             </div>
 
             <div class="row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-lg-4">
                     <label asp-for="Student.Religion"></label>
-                    <input asp-for="Student.Religion" class="form-control" placeholder="e.g. Roman Catholic" required/>
+                    <input asp-for="Student.Religion" class="form-control" placeholder="e.g. Roman Catholic" required />
                     <span class="alert-danger" asp-validation-for="Student.Religion"></span>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-lg-4">
                     <label asp-for="Student.PlaceOfBirth"></label>
-                    <input asp-for="Student.PlaceOfBirth" class="form-control" placeholder="city or municipality" required/>
+                    <input asp-for="Student.PlaceOfBirth" class="form-control" placeholder="city or municipality" required />
                     <span class="alert-danger" asp-validation-for="Student.PlaceOfBirth"></span>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-lg-4">
                     <label asp-for="Student.Age"></label>
-                    <input asp-for="Student.Age" class="form-control" placeholder="" required/>
+                    <input asp-for="Student.Age" class="form-control" placeholder="" required />
                     <span class="alert-danger" asp-validation-for="Student.Age"></span>
                 </div>
             </div>
 
+            @*UPLOAD OF DOCUMENTS*@
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-img-top" id="img-loader">
+                            <div class="img-loader-inner">
+                                <div class="outerCircle"></div>
+                                <div class="innerCircle"></div>
+                                <div class="icon"></div>
+                            </div>
+                        </div>
+                        <img class="card-img-top" src="~/imgs/placeholder.jpg" id="img-preview" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">PSA Document Upload</h5>
+                            <p class="card-text">Please make sure the scanned file is clear and less than 2mb.</p>
+                            <label class="file-upload-container btn btn-primary" for="file-upload">
+                                <input id="file-upload" type="file" style="display:none;">
+                                Select Document
+                            </label>
+                            <div id="myProgress">
+                                <div id="myBar">0%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-img-top" id="img-loader2">
+                            <div class="img-loader-inner2">
+                                <div class="outerCircle"></div>
+                                <div class="innerCircle"></div>
+                                <div class="icon"></div>
+                            </div>
+                        </div>
+                        <img class="card-img-top" src="~/imgs/placeholder.jpg" id="img-preview2" alt="Photo ID">
+                        <div class="card-body">
+                            <h5 class="card-title">Photo ID</h5>
+                            <p class="card-text">Please make sure your portrait photo is 2x2(or square) and less than 2mb.</p>
+                            <label class="file-upload-container2 btn btn-primary" for="file-upload2">
+                                <input id="file-upload2" type="file" style="display:none;">
+                                Select Photo
+                            </label>
+                            <div id="myProgress">
+                                <div id="myBar2">0%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-img-top" id="img-loader3">
+                            <div class="img-loader-inner3">
+                                <div class="outerCircle"></div>
+                                <div class="innerCircle"></div>
+                                <div class="icon"></div>
+                            </div>
+                        </div>
+                        <img class="card-img-top" src="~/imgs/placeholder.jpg" id="img-preview3" alt="Certificate of Good Moral">
+                        <div class="card-body">
+                            <h5 class="card-title">Certificate of Good Moral</h5>
+                            <p class="card-text">Please make sure your scanned document is clear and less than 2mb.</p>
+                            <label class="file-upload-container2 btn btn-primary" for="file-upload3">
+                                <input id="file-upload3" type="file" style="display:none;">
+                                Select Photo
+                            </label>
+                            <div id="myProgress">
+                                <div id="myBar3">0%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    @*<label asp-for="Student.ImageUrlPSA"></label>*@
+                    <input id="url-psa-img" asp-for="Student.ImageUrlPSA" class="form-control" required />
+                    <span class="alert-danger text-danger" asp-validation-for="Student.ImageUrlPSA"></span>
+                </div>
+                <div class="col-lg-12">
+                    @*<label asp-for="Student.ImageUrlID"></label>*@
+                    <input id="url-psa-img2" asp-for="Student.ImageUrlID" class="form-control" required />
+                    <span class="alert-danger text-danger" asp-validation-for="Student.ImageUrlID"></span>
+                </div>
+                <div class="col-lg-12">
+                    @*<label asp-for="Student.ImageUrlMoral"></label>*@
+                    <input id="url-psa-img3" asp-for="Student.ImageUrlMoral" class="form-control" required />
+                    <span class="alert-danger text-danger" asp-validation-for="Student.ImageUrlMoral"></span>
+                </div>
+            </div>
+
+            <hr />
             <br />
-            <input type="submit" value="Save" class="btn btn-primary" />
-            <a onclick="return confirm('Are you sure you want to cancel enrollment?');" class="btn btn-default" href="/">Cancel</a>
+            <div class="submit-btn-container">
+                <input type="submit" value="Save" class="btn btn-primary submit-btn" />
+                <a onclick="return confirm('Are you sure you want to cancel enrollment?');" class="btn btn-default" href="/">Cancel</a>
+            </div>
+
         </form>
+
+
+
     </div>
+
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @*upload scripts*@
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="~/js/upload.js"></script>
+
 </body>
 </html>
