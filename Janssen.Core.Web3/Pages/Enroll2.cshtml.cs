@@ -9,9 +9,9 @@ namespace Janssen.Core.Web3.Pages
 {
     public class Enroll2Model : PageModel
     {
-        public void OnGet()
+        public ActionResult OnPost()
         {
-
+            return RedirectToPage("/login/index");
         }
     }
 }

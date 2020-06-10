@@ -1,7 +1,7 @@
 ﻿@page
 @model Janssen.Core.Web3.Pages.Enroll2Model
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
@@ -14,23 +14,17 @@
     <link href="~/css/upload.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="card">
-        <img src="~/imgs/placeholder.jpg" id="img-preview" />
-        <label class="file-upload-container" for="file-upload">
-            <input id="file-upload" type="file" style="display:none;">
-            Select an Image
-        </label>
-        <div id="myProgress">
-            <div id="myBar">10%</div>
-        </div>
-    </div>
-    <form action="post">
-        <input type="text" />
+    
+    <form action="post" id="student-enroll-form">
+        <input type="text" value="beans"/>
         <div id="url-img-input"></div>
         <button type="submit">submit</button>
     </form>
     <!-- Scripts -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="~/js/upload.js"></script>
+
+    
 </body>
+
 </html>

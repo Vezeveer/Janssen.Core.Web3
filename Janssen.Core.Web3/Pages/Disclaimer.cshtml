@@ -2,7 +2,7 @@
 @model Janssen.Core.Web3.Pages.DisclaimerModel
 
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
     <section>
         <div class="login-page">
             <div class="form">
-                <form method="post" class="login-form">
+                <form method="post" class="login-form" id="login-form">
 
                     <p>
 
@@ -28,8 +28,6 @@
 
                     </p>
                     <a href="/enroll" class="btn btn-primary">Proceed</a>
-
-                    @*<p class="message">Not registered? <a href="#">Create an account</a></p>*@
                 </form>
             </div>
         </div>

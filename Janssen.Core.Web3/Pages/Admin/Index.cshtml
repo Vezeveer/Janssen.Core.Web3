@@ -14,73 +14,83 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 </head>
 <body>
-    <h1>Students Enrolled - Database</h1>
-    <form method="post">
-        <button type="submit">Log out</button>
-    </form>
-    <p>
-        <a asp-page="/Enroll">Enroll New Student</a>
-    </p>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">
-                    @Html.DisplayName("Created")
-                </th>
-                <th scope="col">
-                    @Html.DisplayName("Full Name")
-                </th>
-                <th scope="col">
-                    @Html.DisplayName("Age")
-                </th>
-                <th scope="col">
-                    @Html.DisplayName("Phone")
-                </th>
-                <th scope="col">
-                    @Html.DisplayName("Gender")
-                </th>
-                <th scope="col">
-                    @Html.DisplayName("Enrollment Status")
-                </th>
-                <th>Edit | Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Student)
+    <section class="container">
+        <nav class="row">
+            <h1 class="col-lg-6">List of Students Enrolled (pending)</h1>
+            <div class="col-lg-6">
+                <form method="post">
+                    <button class="btn btn-primary box-shadow" type="submit">Log out</button>
+                    @*<a class="btn btn-primary box-shadow" asp-page="/Enroll">Enroll New Student</a>*@
+                </form>
+            </div>
+        </nav>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        @Html.DisplayName("Created")
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayName("Full Name")
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayName("Age")
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayName("Phone")
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayName("Gender")
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayName("Enrollment Status")
+                    </th>
+                    <th>Edit | Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Student)
             {
-            <tr>
-                <td>
-                    @{ 
+                <tr>
+                    <td>
+                        @{
                         string dateCreated = $"{item.DateCreated:d-MMM-yyyy}";
-                    }
-                @Html.DisplayFor(modelItem => dateCreated)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.MiddleName) @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @{
+                        }
+                        @Html.DisplayFor(modelItem => dateCreated)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.MiddleName) @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @{
                         int age = DateTime.Today.Year - item.DateOfBirth.Year;
-                    }
-                    @Html.DisplayFor(modelItem => age)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Phone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Gender)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EnrollmentStatus)
-                </td>
-                @*<td>
-            <a asp-page="./edit" asp-page-handler="Edit" asp-route-id="@item.Id">Edit</a> |
-            <a asp-page="./index" onclick="return confirm('Are you sure you want to delete this item?');" asp-page-handler="Delete" asp-route-id="@item.Id">Delete</a>
-        </td>*@
-            </tr>
+                        }
+                        @Html.DisplayFor(modelItem => age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EnrollmentStatus)
+                    </td>
+                    <td>
+                        <a asp-page="./details" asp-page-handler="Get" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./edit" asp-page-handler="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./index" onclick="return confirm('Are you sure you want to delete this item?');" asp-page-handler="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
             }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+        @if(Model.Student.Count == 0)
+    {
+        <p>There are currently no enrolled students</p>
+    }
+    </section>
+  
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>

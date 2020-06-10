@@ -35,10 +35,6 @@ namespace Janssen.Core.Web3.Pages.Admin
             return RedirectToPage("/login/logout");
         }
 
-        //public ActionResult NextPage()
-        //{
-        //    return RedirectTo
-        //}
 
         public ActionResult OnGetEdit(string id)
         {

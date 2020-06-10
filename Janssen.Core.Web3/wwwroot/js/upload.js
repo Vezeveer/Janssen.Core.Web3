@@ -92,3 +92,20 @@ function HowTheyFindUs(val) {
     else
         element.style.display = 'none';
 }
+
+$('#student-enroll-form').submit(function () {
+    $('#loader-wrapper').show();
+
+    return true; // return false to cancel form action
+});
+
+    //beforeSubmit = function () {
+    //    console.log("submitted...");
+    //                    $('.loader-wrapper').show();
+
+    //                    setTimeout(() => {
+    //    $("#formid").submit();
+    //                        console.log("we waited 204586560000 ms to run this code, oh boy wowwoowee!");
+    //                    }, 5000);
+
+    //}

@@ -1,48 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Threading.Tasks;
 using Janssen.Core.Web3.Models;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 
-namespace Janssen.Core.Web3.Pages
+namespace Janssen.Core.Web3.Pages.Admin
 {
-    public class EnrollModel : PageModel
+    public class DetailsModel : PageModel
     {
         private readonly IMongoCollection<Student> students;
 
-        public EnrollModel(IConfiguration config)
+        public DetailsModel(IConfiguration config)
         {
             MongoClient client = new MongoClient(config.GetConnectionString("SajctiDB"));
             IMongoDatabase database = client.GetDatabase("StudentsDB");
             students = database.GetCollection<Student>("Students");
+
+
         }
+
+        //[BindProperty]
+        //public List<Student> Students { get; set; }
 
         [BindProperty]
         public Student Student { get; set; }
 
-        public void OnGet()
+        //public string StudentToView { get; set; }
+
+        public void OnGet(string id)
         {
-
-        }
-
-        public IActionResult OnPost()
-        {
-            var student = Student;
-
-            //if(!ModelState.IsValid)
-            //{
-
-            //    return Page();
-            //}
-            students.InsertOne(student);
-            ModelState.Clear();
-            return RedirectToPage("/EnrollNextStep");
+            //StudentToView = id;
+            //Students = students.Find(student => true).ToList();
+            try
+            {
+                Student = students.Find(student => student.Id == id).ToList()[0];
+            }
+            catch
+            {
+                RedirectToPage("/index");
+            }
         }
 
     }
