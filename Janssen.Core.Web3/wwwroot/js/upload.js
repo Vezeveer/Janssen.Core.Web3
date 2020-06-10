@@ -29,6 +29,8 @@ function uploadFile(event, imgLoaderID, imgPreviewID, elem, urlImgID) {
         var size = +(event.target.files[0].size / 1000000).toFixed(2);
         alert("You tried to upload a " + size + "mb sized file which is too large. Please upload a file less than 2mb");
         event.target.value = "";
+        // Fade out and hide the loading image.
+        $(imgLoaderID).fadeOut(100); // Time in milliseconds.
     } else {
         var file = event.target.files[0];
         var formData = new FormData();
@@ -60,13 +62,14 @@ function uploadFile(event, imgLoaderID, imgPreviewID, elem, urlImgID) {
             document.getElementById(imgPreviewID).src = "imgs/error-upload.jpg";
 
             document.getElementById(urlImgID).value = "";
-            elem.style.width = "10%";
+            elem.style.width = "25%";
             elem.style.backgroundColor = "red";
             elem.innerHTML = "Failed";
         });
     };
 };
 
+// BG change on alert // 
 var originalAlert = window.alert;
 
 window.alert = function (args) {

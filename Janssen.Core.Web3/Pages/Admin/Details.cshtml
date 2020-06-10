@@ -51,11 +51,7 @@
             <div class="row">
                 <div class="form-group col-lg-4">
                     <label for="enrollment-status">Enrollment Status</label>
-                    <select asp-for="Student.EnrollmentStatus" class="form-control" id="enrollment-status">
-                        <option>Continuing Student</option>
-                        <option>New Student</option>
-                        <option>Returnee</option>
-                    </select>
+                    <input readonly asp-for="Student.EnrollmentStatus" class="form-control" required />
                     <span class="alert-danger text-danger" asp-validation-for="Student.EnrollmentStatus"></span>
                 </div>
             </div>
@@ -83,10 +79,7 @@
 
                 <div class="form-group col-lg-4">
                     <label for="gender">Gender</label>
-                    <select asp-for="Student.Gender" class="form-control" id="gender">
-                        <option>Female</option>
-                        <option>Male</option>
-                    </select>
+                    <input readonly asp-for="Student.Gender" class="form-control" required />
                     <span class="alert-danger text-danger" asp-validation-for="Student.Gender"></span>
                 </div>
 
@@ -118,11 +111,7 @@
                 </div>
                 <div class="form-group col-lg-4">
                     <label asp-for="Student.Sacraments"></label>
-                    <select asp-for="Student.Sacraments" class="form-control">
-                        <option>Baptism</option>
-                        <option>First Communion</option>
-                        <option>Confirmation</option>
-                    </select>
+                    <input readonly asp-for="Student.Sacraments" class="form-control" required />
                     <span class="alert-danger text-danger" asp-validation-for="Student.Sacraments"></span>
                 </div>
             </div>
@@ -134,16 +123,8 @@
                 </div>
                 <div class="form-group col-lg-4">
                     <label asp-for="Student.StayingWith"></label>
-                    <select asp-for="Student.StayingWith" class="form-control" id="gender" onchange='CheckOtherGuardians(this.value);'>
-                        <option>Parents</option>
-                        <option>Guardians</option>
-                        <option value="others">Others</option>
-                    </select>
+                    <input readonly asp-for="Student.StayingWith" class="form-control" required />
                     <span class="alert-danger text-danger" asp-validation-for="Student.StayingWith"></span>
-                    <div id="guardians" style="display: none;">
-                        <input readonly asp-for="Student.StayingWith" class="form-control" placeholder="Specify" required />
-                        <span class="alert-danger" asp-validation-for="Student.StayingWith"></span>
-                    </div>
                 </div>
                 <div class="form-group col-lg-4">
                     <label asp-for="Student.Phone"></label>
@@ -166,10 +147,7 @@
             <div class="row">
                 <div class="form-group col-lg-4">
                     <label asp-for="Student.Transport"></label>
-                    <select asp-for="Student.Transport" class="form-control">
-                        <option>Public</option>
-                        <option>Private</option>
-                    </select>
+                    <input readonly asp-for="Student.Transport" class="form-control" required />
                     <span class="alert-danger text-danger" asp-validation-for="Student.Transport"></span>
                 </div>
                 <div class="form-group col-lg-4">
@@ -179,22 +157,8 @@
                 </div>
                 <div class="form-group col-lg-4">
                     <label asp-for="Student.HowTheyFindUs"></label>
-                    <select asp-for="Student.HowTheyFindUs" class="form-control" onchange='HowTheyFindUs(this.value);'>
-                        <option>Relative/Family</option>
-                        <option>News Print</option>
-                        <option>Classmate</option>
-                        <option>Tarpaulin</option>
-                        <option>Friend</option>
-                        <option>Flyer</option>
-                        <option>Radio</option>
-                        <option>Facebook</option>
-                        <option value="others">Others</option>
-                    </select>
+                    <input readonly asp-for="Student.HowTheyFindUs" class="form-control" required />
                     <span class="alert-danger text-danger" asp-validation-for="Student.HowTheyFindUs"></span>
-                    <div id="HowTheyFindUs" style="display: none;">
-                        <input readonly asp-for="Student.HowTheyFindUs" class="form-control" placeholder="Specify how you found us" required />
-                        <span class="alert-danger" asp-validation-for="Student.HowTheyFindUs"></span>
-                    </div>
                 </div>
             </div>
             <h2>Family Background</h2>
@@ -278,7 +242,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">@cardLabels[i]</h5>
                                 @*<p class="card-text">@cardDescription[i]</p>*@
-                                <a href=@imageUrls[i] target="_blank">View Full Document</a>
+                                <a class="btn btn-primary bg-primary text-white" href=@imageUrls[i] target="_blank">View Full Document</a>
                             </div>
                         </div>
                     </div>
@@ -289,7 +253,7 @@
             <br />
             <div class="submit-btn-container">
                 @*<input readonly type="submit" value="Save" class="btn btn-primary submit-btn" />*@
-                <a class="btn btn-default" href="/admin">Go Back</a>
+                <a class="btn btn-primary bg-primary text-white" href="/admin">Go Back</a>
             </div>
 
         </form>

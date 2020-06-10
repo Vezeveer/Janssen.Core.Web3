@@ -36,10 +36,10 @@ namespace Janssen.Core.Web3.Pages.Admin
         }
 
 
-        public ActionResult OnGetEdit(string id)
-        {
-            return RedirectToPage("/admin/edit?id="+id);
-        }
+        //public ActionResult OnGetEdit(string id)
+        //{
+        //    return RedirectToPage("/admin/edit?id="+id);
+        //}
 
         public ActionResult OnGetDelete(string id)
         {
