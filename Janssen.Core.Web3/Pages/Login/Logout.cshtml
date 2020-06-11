@@ -12,7 +12,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>SAJCTI - Login</title>
-    <link href="~/css/login.css" rel="stylesheet" />
+    <link href="~/css/login.css" rel="stylesheet" asp-append-version="true"/>
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
@@ -24,7 +24,7 @@
                     <p class="text-danger" style="color:red !important;">
                         You Logged Out
                     </p>
-                    <a href="/" class="btn btn-primary">Go back to login screen</a>
+                    <a href="/login" class="btn btn-primary">Go back to login screen</a>
 
                     @*<p class="message">Not registered? <a href="#">Create an account</a></p>*@
                 </form>
@@ -32,7 +32,7 @@
         </div>
     </section>
 
-    <script src="~/js/login.js"></script>
+    <script src="~/js/login.js" asp-append-version="true"></script>
     
 </body>
 </html>

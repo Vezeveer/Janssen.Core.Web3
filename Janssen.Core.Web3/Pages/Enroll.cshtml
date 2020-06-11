@@ -12,9 +12,9 @@
     <meta name="viewport" content="width=device-width" />
     <title>SAJCTI - Enroll</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link href="~/css/Enroll2.css" rel="stylesheet" />
-    <link href="~/css/img-loading-anim.css" rel="stylesheet" />
-    <link href="~/css/sk.cube.loader.css" rel="stylesheet" />
+    <link href="~/css/Enroll2.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/img-loading-anim.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/sk.cube.loader.css" rel="stylesheet" asp-append-version="true" />
 </head>
 <body>
 
@@ -229,58 +229,58 @@
 
             @*UPLOAD OF DOCUMENTS*@
 
-        <div class="row">
-            @{
-                string[] cardLabels = { "", "PSA Document Upload", "Photo ID",  "Certificate of Good Moral", "School Report Card" };
-                string[] cardDescription = { "", "Please make sure the scanned file is clear and less than 2mb.",
+            <div class="row">
+                @{
+                    string[] cardLabels = { "", "PSA Document Upload", "Photo ID", "Certificate of Good Moral", "School Report Card" };
+                    string[] cardDescription = { "", "Please make sure the scanned file is clear and less than 2mb.",
                     "Please make sure your portrait photo is 2x2(or square) and less than 2mb.",
                     "Please make sure the scanned file is clear and less than 2mb.",
                     "Please make sure the scanned image is clear and less than 2mb"
                 };
 
-                for (int i = 1; i < 5; i++)
-                {
-                    <div class="col-lg-3">
-                        <div class="card">
-                            @*<div class="card-img-top" id=@($"img-loader{i}")>
-                                <div class=@($"img-loader-inner{i}")>
-                                    <div class="outerCircle"></div>
-                                    <div class="innerCircle"></div>
-                                    <div class="icon"></div>
-                                </div>
-                            </div>*@
-                            <div class="card-img-top">
-                                <div class="sk-cube-container" id=@($"img-loader{i}")>
-                                    <div class="sk-cube-grid">
-                                        <div class="sk-cube sk-cube1"></div>
-                                        <div class="sk-cube sk-cube2"></div>
-                                        <div class="sk-cube sk-cube3"></div>
-                                        <div class="sk-cube sk-cube4"></div>
-                                        <div class="sk-cube sk-cube5"></div>
-                                        <div class="sk-cube sk-cube6"></div>
-                                        <div class="sk-cube sk-cube7"></div>
-                                        <div class="sk-cube sk-cube8"></div>
-                                        <div class="sk-cube sk-cube9"></div>
+                    for (int i = 1; i < 5; i++)
+                    {
+                        <div class="col-lg-3">
+                            <div class="card">
+                                @*<div class="card-img-top" id=@($"img-loader{i}")>
+                                        <div class=@($"img-loader-inner{i}")>
+                                            <div class="outerCircle"></div>
+                                            <div class="innerCircle"></div>
+                                            <div class="icon"></div>
+                                        </div>
+                                    </div>*@
+                                <div class="card-img-top">
+                                    <div class="sk-cube-container" id=@($"img-loader{i}")>
+                                        <div class="sk-cube-grid">
+                                            <div class="sk-cube sk-cube1"></div>
+                                            <div class="sk-cube sk-cube2"></div>
+                                            <div class="sk-cube sk-cube3"></div>
+                                            <div class="sk-cube sk-cube4"></div>
+                                            <div class="sk-cube sk-cube5"></div>
+                                            <div class="sk-cube sk-cube6"></div>
+                                            <div class="sk-cube sk-cube7"></div>
+                                            <div class="sk-cube sk-cube8"></div>
+                                            <div class="sk-cube sk-cube9"></div>
+                                        </div>
                                     </div>
+                                    <img style="width:100%;" src="~/imgs/placeholder.jpg" id=@($"img-preview{i}") alt="Document Photo">
                                 </div>
-                                <img style="width:100%;" src="~/imgs/placeholder.jpg" id=@($"img-preview{i}") alt="Document Photo">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">@cardLabels[i]</h5>
-                                <p class="card-text">@cardDescription[i]</p>
-                                <label class="btn btn-primary" id=@($"file-upload-container{i}") for=@($"file-upload{i}")>
-                                    <input id=@($"file-upload{i}") type="file" style="display:none;">
-                                    Select Photo
-                                </label>
-                                <div id="myProgress">
-                                    <div id=@($"myBar{i}")>0%</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">@cardLabels[i]</h5>
+                                    <p class="card-text">@cardDescription[i]</p>
+                                    <label class="btn btn-primary" id=@($"file-upload-container{i}") for=@($"file-upload{i}")>
+                                        <input id=@($"file-upload{i}") type="file" style="display:none;">
+                                        Select Photo
+                                    </label>
+                                    <div id="myProgress">
+                                        <div id=@($"myBar{i}")>0%</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 }
-            }
-        </div>
+            </div>
 
             <div class="row">
                 <div class="col-lg-12">
@@ -324,7 +324,8 @@
 
     @*upload scripts*@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="~/js/upload.js"></script>
+    <script src="~/js/upload.js" asp-append-version="true"></script>
+
 
 </body>
 </html>

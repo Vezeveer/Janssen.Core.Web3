@@ -13,7 +13,7 @@ namespace Janssen.Core.Web3.Pages
 
         public ActionResult OnPost()
         {
-            return RedirectToPage("/login/index");
+            return RedirectToPage("/index");
         }
     }
 }

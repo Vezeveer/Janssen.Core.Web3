@@ -2,6 +2,7 @@
 @model Janssen.Core.Web3.Pages.Admin.DetailsModel
 @{
     ViewData["Title"] = "Details";
+    Layout = null;
 }
 
 @*<h1>Details</h1>
@@ -28,23 +29,58 @@
     <meta name="viewport" content="width=device-width" />
     <title>SAJCTI - Student Details</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link href="~/css/Enroll2.css" rel="stylesheet" />
-    <link href="~/css/img-loading-anim.css" rel="stylesheet" />
-    <link href="~/css/sk.cube.loader.css" rel="stylesheet" />
+    <link href="~/css/Enroll2.css" rel="stylesheet" asp-append-version="true"/>
+    <link href="~/css/img-loading-anim.css" rel="stylesheet" asp-append-version="true"/>
+    <link href="~/css/sk.cube.loader.css" rel="stylesheet" asp-append-version="true"/>
 </head>
 <body>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+    <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+        <!-- Navbar content -->
+        <a class="navbar-brand" href="#">Students Details</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <!-- <a class="nav-link" href="#">Logout <span class="sr-only">(current)</span></a> -->
+                </li>
+                <liv class="nav-item">
+                    <a class="nav-link bg-secondary" style="margin-left: 5px;" href="/admin">Go Back</a>
+                </liv>
+                <li class="nav-item">
+                    <a class="nav-link bg-secondary" style="margin-left: 5px;" href="mailto:mortalmanny@live.com">Report an error</a>
+                </li>
+
+                @*<li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>*@
+</div>
+    </nav>
 
 
     <div class="container">
-        <h3>Student Details</h3>
-        <hr />
-        <br />
 
 
         <form method="post" id="student-enroll-form">
@@ -53,6 +89,13 @@
                     <label for="enrollment-status">Enrollment Status</label>
                     <input readonly asp-for="Student.EnrollmentStatus" class="form-control" required />
                     <span class="alert-danger text-danger" asp-validation-for="Student.EnrollmentStatus"></span>
+                </div>
+                <div class="form-group col-lg-4">
+                    @{
+                        int age = DateTime.Today.Year - Model.Student.DateOfBirth.Year;
+                    }
+                    <label>Age</label>
+                    <input readonly value=@age class="form-control" required />
                 </div>
             </div>
 
